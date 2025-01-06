@@ -1,0 +1,414 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #b196f0, #f7b1e3);
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 93.8vh;
+    padding: 20px;
+  }
+  body::-webkit-scrollbar {
+    display: none;
+}
+  /* Style pour le header */
+  .header {
+    display: flex;
+    justify-content: space-between;
+    
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(10px); 
+    padding: 20px 40px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    border-bottom: 2px solid #f9a3ec;
+    border-radius: 10px; /* Ajouter un arrondi pour l'effet esthétique */
+  }
+  
+  .header h1 {
+    color: #fff;
+    padding: 25px;
+    margin: auto;
+    font-size: 3rem;
+    font-weight: bold;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.7);
+  }
+  
+  /* Animation de l'apparition du header */
+  @keyframes slideIn {
+    0% {
+      transform: translateY(-100%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  .animated-title {
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+  .header {
+    animation: slideIn 0.5s ease-out;
+  }
+  
+  .quoteBox {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    text-align: center;
+    animation: fade-in 1s ease;
+  }
+  
+  .text {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-style: italic;
+  }
+  
+  .author {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .buttonContainer {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 10px 15px;
+    font-size: 1rem;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  button:hover {
+    transform: scale(1.05);
+  }
+   
+  .btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 13rem;
+    overflow: hidden;
+    height: 3rem;
+    background-size: 300% 300%;
+    cursor: pointer;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+    transition: 0.5s;
+    animation: gradient_301 5s ease infinite;
+    border: double 4px transparent;
+    background-image: linear-gradient(#212121, #212121),
+      linear-gradient(
+        137.48deg,
+        #ffdb3b 10%,
+        #fe53bb 45%,
+        #8f51ea 67%,
+        #0044ff 87%
+      );
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+  }
+  
+  #container-stars {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transition: 0.5s;
+    backdrop-filter: blur(1rem);
+    border-radius: 5rem;
+  }
+  
+  strong {
+    z-index: 2;
+    color: #ffffff;
+    text-shadow: 0 0 4px white;
+  }
+  
+  #glow {
+    position: absolute;
+    display: flex;
+    width: 12rem;
+  }
+  
+  .circle {
+    width: 100%;
+    height: 30px;
+    filter: blur(2rem);
+    animation: pulse_3011 4s infinite;
+    z-index: -1;
+  }
+  
+  .circle:nth-of-type(1) {
+    background: rgba(254, 83, 186, 0.636);
+  }
+  
+  .circle:nth-of-type(2) {
+    background: rgba(142, 81, 234, 0.704);
+  }
+  
+  .btn:hover #container-stars {
+    z-index: 1;
+    background-color: #7e02c1ae;
+  }
+  
+  .btn:hover {
+    transform: scale(1.1);
+  }
+  
+  .btn:active {
+    border: double 4px #fe53bb;
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+    animation: none;
+  }
+  
+  .btn:active .circle {
+    background: #fe53bb;
+  }
+  
+  #stars {
+    position: relative;
+    background: transparent;
+    width: 200rem;
+    height: 200rem;
+  }
+  
+  #stars::after {
+    content: "";
+    position: absolute;
+    top: -10rem;
+    left: -100rem;
+    width: 100%;
+    height: 100%;
+    animation: animStarRotate 90s linear infinite;
+  }
+  
+  #stars::after {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+  }
+  
+  #stars::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 170%;
+    height: 500%;
+    animation: animStar 60s linear infinite;
+  }
+  
+  #stars::before {
+    background-image: radial-gradient(#ffffff 1px, transparent 1%);
+    background-size: 50px 50px;
+    opacity: 0.5;
+  }
+  
+  @keyframes animStar {
+    from {
+      transform: translateY(0);
+    }
+  
+    to {
+      transform: translateY(-135rem);
+    }
+  }
+  
+  @keyframes animStarRotate {
+    from {
+      transform: rotate(360deg);
+    }
+  
+    to {
+      transform: rotate(0);
+    }
+  }
+  
+  @keyframes gradient_301 {
+    0% {
+      background-position: 0% 50%;
+    }
+  
+    50% {
+      background-position: 100% 50%;
+    }
+  
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  @keyframes pulse_3011 {
+    0% {
+      transform: scale(0.75);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+    }
+  
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+    }
+  
+    100% {
+      transform: scale(0.75);
+      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    }
+  }
+  
+  
+  #copyBtn {
+    background-color: #ff6b6b;
+    margin-left: 10px;
+  }
+  
+  .notification {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeInOut 2s forwards;
+  }
+  
+  @keyframes fadeInOut {
+    0% {
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }  
+  
+  
+  /* Animation */
+  .fade-in {
+    animation: fadeIn 1s ease-in-out;
+  }
+  /* Container for the dropdown */
+  select {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 8px;
+    background-color: #e693ff;
+    border: 1px solid #ff7deb;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Change background color when the dropdown is focused */
+  select:focus {
+    border-color: #8b00cc;
+    box-shadow: 0 0 5px rgba(0, 102, 204, 0.3);
+  }
+  
+  /* Add a little padding and spacing to the options */
+  select option {
+    padding: 10px;
+    background-color: white;
+    border: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  /* Change the background color when hovering over an option */
+  select option:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Style the dropdown arrow */
+  select::-ms-expand {
+    display: none;
+  }
+  
+  select::after {
+    content: '\f0d7'; /* Unicode for downward arrow */
+    font-family: FontAwesome;
+    font-size: 20px;
+    color: #666;
+    margin-left: 10px;
+  }
+  
+  /* Style for the container if needed */
+  .languageSelector {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .languageSelector select {
+    margin-left: 10px;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  .footer {
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.4); 
+    backdrop-filter: blur(10px); 
+    position: absolute;
+    bottom: 0;
+    width: 98.5%;
+}
+
+.footer p {
+    margin: 0;
+    color: white;
+}
+.footer p a {
+    margin: 0;
+    color: white;
+    text-decoration: none;
+}
